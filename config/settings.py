@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # my apps.
     'accounts',
     'pages',
+    'books',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 
+
+# Email config
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
