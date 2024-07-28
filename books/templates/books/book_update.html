@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% block page_title %} ویرایش کتاب {{ book.title }} {% endblock page_title %}
+
+{% block page_content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="ویرایش">
+    </form>
+    <br>
+    <a href="{% url 'book_list' %}">نمایش کتاب ها</a>
+{% endblock page_content %}
