@@ -4,8 +4,14 @@ from django.views import generic
 from .models import Book
 
 
-class BooksListViews(generic.ListView):
+class BooksListView(generic.ListView):
     model = Book
     template_name = 'books/book_list.html'
     context_object_name = 'books'
+
+
+class BooksDetailView(generic.DetailView):
+    model = Book
+    template_name = 'books/book_detail.html'
+
     

@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+
+{% block page_title %}
+    کتاب {{ book.title }}
+{% endblock page_title %}
+
+
+{% block page_content %}
+    <h1>{{ book.title }}</h1>
+    <h3>{{ book.author }}</h3>
+    <p>{{ book.description }}</p>    
+    <h4>{{ book.price }}</h4>
+    <a class="btn btn-success" href="{% url 'book_list' %}"><h5>بازگشت به صفحه اصلی</h5></a>
+{% endblock page_content %}
