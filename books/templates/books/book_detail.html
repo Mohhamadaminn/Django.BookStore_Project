@@ -5,9 +5,9 @@
 
 
 {% block page_content %}
-    <h1>{{ book.title }}</h1>
+    <h1>{{ book.title|capfirst }}</h1>
     <h3>{{ book.author }}</h3>
-    <p>{{ book.description }}</p>    
+    <p>{{ book.description|linebreaks }}</p>    
     <h4>{{ book.price }}</h4>
     <a class="btn btn-success" href="{% url 'book_update' book.id %}">ویرایش کتاب</a>
     <a href="{% url 'book_delete' book.id %}"><button class="btn btn-info" type="button">حذف</button></a>

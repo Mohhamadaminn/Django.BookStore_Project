@@ -9,8 +9,9 @@
 {% block page_content %}
     
     {% for book in books %}
-       <a class="btn btn" href="{{ book.get_absolute_url }}"><h1>{{ book.title }}</h1></a>
-       <p>{{ book.description }}</p>
+       <a class="btn btn" href="{{ book.get_absolute_url }}"><h1>{{ book.title|capfirst }}</h1></a>
+       <p>{{ book.author|capfirst }}</p>
+       <p>{{ book.description|truncatewords:12 }}</p>
        <br>
     {% endfor %}
 
