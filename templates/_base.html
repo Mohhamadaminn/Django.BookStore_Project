@@ -43,13 +43,19 @@
                 </div>
             </div>            
             <div class="mx-2 text-white"> 
+                
                 {% if user.is_authenticated %}
-                    خوش آمدی {{ user.username }} |<a class="link-light text-decoration-none" href="{% url 'logout' %}">خروج</a>
+                    خوش آمدی {{ user.username }} |
+                    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link link-light text-decoration-none p-0 m-0 align-baseline">خروج</button>
+                    </form>
                 {% else %}
-                    <a class="link-light text-decoration-none" aria-current="page" href="{% url 'login' %}">ورود</a>
+                    <a class="link-light text-decoration-none" href="{% url 'login' %}">ورود</a>
                     |
-                    <a class="link-light text-decoration-none" href="{% url 'signup' %}">ثبت نام</a>                 
-                {% endif %}     
+                    <a class="link-light text-decoration-none" href="{% url 'signup' %}">ثبت نام</a>
+                {% endif %}
+   
             </div>                
         </div>
     </nav>
