@@ -44,16 +44,39 @@ class BooksCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'books/book_create.html'
 
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
 class BookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Book
     fields = ['title', 'author', 'description', 'price', 'cover', ]
     template_name = 'books/book_update.html'
+
+    # set the condition that just let the owner of book edit it.
+    def dispatch(self, request, *args, **kwargs):
+
+        obj = self.get_object()
+        if obj.user != request.user:
+            return render(request, 'not_owner.html')    
+
+        return super().dispatch(request, *args, **kwargs)
 
 
 class BookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Book
     template_name = 'books/book_delete.html'
     success_url = reverse_lazy('book_list')
+
+    # set the condition that just let the owner of book delete it.
+    def dispatch(self, request, *args, **kwargs):
+
+        obj = self.get_object()
+        if obj.user != request.user:
+            return render(request, 'not_owner.html')    
+
+        return super().dispatch(request, *args, **kwargs)
     
 
     
