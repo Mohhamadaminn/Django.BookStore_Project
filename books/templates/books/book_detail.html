@@ -54,9 +54,9 @@
                                     <h5 class="mb-3">{{ comment.user.username }}</h5>
                                     
                                     {% if comment.recommend %}
-                                        این کتاب را توصیه میکنم
+                                        <p style="color:green;">این کتاب را توصیه میکنم</p>
                                     {% else %}
-                                        این کتاب را توصیه نمیکنم
+                                        <p style="color:red;">این کتاب را توصیه نمیکنم</p>
                                     {% endif %}
                                         
                                     <p>{{ comment.text|linebreaks }}</p>
