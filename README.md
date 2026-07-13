@@ -2,9 +2,8 @@
 
 A simple Django web app for browsing, adding, and reviewing books.
 
-![App Screenshot](screenshots/home.png)
-![App Screenshot](screenshots/comment-section.png)
-
+<img src="screenshots/home.png" width="600">
+<img src="screenshots/comment-section.png" width="600">
 
 ## Features
 
